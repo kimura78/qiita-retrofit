@@ -22,7 +22,7 @@ class ItemListFragment : Fragment() {
 
         binding.viewModel = viewModel
 
-        binding.photosGrid.adapter = ItemAdapter()
+        binding.itemList.adapter = ItemAdapter()
 
         setHasOptionsMenu(true)
         return binding.root
