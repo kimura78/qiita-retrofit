@@ -18,7 +18,7 @@ class ItemListFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = FragmentItemListBinding.inflate(inflater)
 
-        binding.setLifecycleOwner(this)
+        binding.lifecycleOwner = this
 
         binding.viewModel = viewModel
 

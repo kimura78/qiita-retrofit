@@ -6,8 +6,7 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 
-private const val BASE_URL =
-    "https://qiita.com/api/v2/"
+private const val BASE_URL = "https://android-kotlin-fun-mars-server.appspot.com/"
 
 private val moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
@@ -18,12 +17,15 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface ItemService {
+interface ItemApiService {
+
     @GET("realestate")
-    fun getProperties(): List<ItemProperty>
+    suspend fun getProperties(): List<ItemProperty>
 }
 
+/**
+ * A public Api object that exposes the lazy-initialized Retrofit service
+ */
 object ItemApi {
-    val retrofitService : ItemService by lazy {
-        retrofit.create(ItemService::class.java) }
+    val retrofitService : ItemApiService by lazy { retrofit.create(ItemApiService::class.java) }
 }
