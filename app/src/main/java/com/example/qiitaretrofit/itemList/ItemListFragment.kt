@@ -18,11 +18,11 @@ class ItemListFragment : Fragment() {
                               savedInstanceState: Bundle?): View? {
         val binding = FragmentItemListBinding.inflate(inflater)
 
-        // Allows Data Binding to Observe LiveData with the lifecycle of this Fragment
         binding.setLifecycleOwner(this)
 
-        // Giving the binding access to the OverviewViewModel
         binding.viewModel = viewModel
+
+        binding.photosGrid.adapter = ItemAdapter()
 
         setHasOptionsMenu(true)
         return binding.root
