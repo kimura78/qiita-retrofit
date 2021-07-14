@@ -10,7 +10,6 @@ import com.example.qiitaretrofit.network.ItemProperty
 
 class ItemAdapter() : ListAdapter<ItemProperty, ItemAdapter.ItemViewHolder>(DiffCallback) {
 
-
     class ItemViewHolder(private var binding: CardItemBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ItemProperty) {
             binding.property = item
@@ -23,7 +22,6 @@ class ItemAdapter() : ListAdapter<ItemProperty, ItemAdapter.ItemViewHolder>(Diff
             return oldItem === newItem
         }
 
-
         override fun areContentsTheSame(oldItem: ItemProperty, newItem: ItemProperty): Boolean {
             return oldItem.id == newItem.id
         }
@@ -35,7 +33,7 @@ class ItemAdapter() : ListAdapter<ItemProperty, ItemAdapter.ItemViewHolder>(Diff
     }
 
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
-        val marsProperty = getItem(position)
-        holder.bind(marsProperty)
+        val itemProperty = getItem(position)
+        holder.bind(itemProperty)
     }
 }
